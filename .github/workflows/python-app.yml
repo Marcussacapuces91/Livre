@@ -27,6 +27,7 @@ jobs:
       run: |-
         curl -fsSL https://ollama.com/install.sh | sh
         ollama --version
+        ollama run llama3.2 --verbose
         ollama serve &
 
     - name: Install uv
