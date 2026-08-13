@@ -27,5 +27,5 @@ jobs:
         python-version: "3.14"
       
     - name: install UV cli
-      run: curl -LsSf https://astral.sh | sh:
+      run: curl -LsSf https://astral.sh | sh
         
