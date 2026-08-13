@@ -27,14 +27,19 @@ jobs:
 
     - name: Load & install Ollama CLI
       run: |
-        echo "API key length: ${#OLLAMA_API_KEY}"
-        env | grep OLLAMA
         curl -fsSL https://ollama.com/install.sh | sh
         export PATH="$HOME/.local/bin:$PATH"
-        ollama --version
-        ollama serve &
 
-    - run: ollama run gemma4:cloud --verbose
+    - name: Start Ollama server in background
+      run: ollama serve &
+
+    - name: Test Ollama
+      run: |
+        echo "API key length: ${#OLLAMA_API_KEY}"
+        env | grep OLLAMA
+        ollama run gemma4:cloud --verbose
+        ollama --version
+
 
     - name: Install uv
       uses: astral-sh/setup-uv@v1
