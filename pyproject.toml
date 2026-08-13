@@ -2,7 +2,7 @@
 name = "ollama-test"
 version = "0.1.0"
 requires-python = ">=3.12"
- 
+
 dependencies = [
   "ollama>=0.6.2",
   "markdown>=3.8",
