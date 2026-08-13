@@ -35,6 +35,7 @@ jobs:
     - run: |
         ls -la ~/.ollama
         cat ~/.ollama/id_ed25519.pub || true
+      continue-on-error: true
 
     # - name: Start Ollama server in background
     #   run: |
