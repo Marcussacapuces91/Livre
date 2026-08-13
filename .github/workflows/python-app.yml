@@ -27,5 +27,11 @@ jobs:
         python-version: "3.14"
       
     - name: install UV cli
-      run: curl -LsSf https://astral.sh | sh
+      run: |
+        # télécharge et installe dans $HOME/.local/bin
+        curl -LsSf https://astral.sh | sh -s -- -b "$HOME/.local/bin"
+        # garde ~/.local/bin dans le PATH pour les étapes suivantes
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+        # vérification rapide
+        uv --version
         
