@@ -25,5 +25,7 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: "3.14"
-        cache: 'uv'
+      
+    - name: install UV cli
+      run: curl -LsSf https://astral.sh | sh:
         
