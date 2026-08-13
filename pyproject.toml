@@ -1,9 +1,9 @@
 [project]
-name = "ollama-test"
+name = "Livre"
 version = "0.1.0"
-requires-python = ">=3.12"
+requires-python = ">=3.14"
 
 dependencies = [
   "ollama>=0.6.2",
-  "markdown>=3.8",
+  "markdown>=3.10",
 ]
