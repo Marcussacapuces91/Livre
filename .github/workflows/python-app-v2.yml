@@ -14,7 +14,6 @@ permissions:
   contents: write
 
 env:
-  OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         
 jobs:
@@ -37,3 +36,5 @@ jobs:
     - run: uv sync
 
     - run: uv run main.py
+      env:
+        OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
