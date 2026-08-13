@@ -25,7 +25,9 @@ jobs:
     - name: Load & install Ollama CLI
       env:
         OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
-      run: |-
+      run: |
+        echo "API key length: ${#OLLAMA_API_KEY}"
+        env | grep OLLAMA
         curl -fsSL https://ollama.com/install.sh | sh
         export PATH="$HOME/.local/bin:$PATH"
         ollama --version
