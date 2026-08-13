@@ -32,11 +32,15 @@ jobs:
         sleep 10 
         ollama signin
 
-    - name: Start Ollama server in background
-      run: |
-        ps -ef | grep ollama
-        ss -ltnp | grep 11434 || true
-        # ollama serve &
+    - run: |
+        ls -la ~/.ollama
+        cat ~/.ollama/id_ed25519.pub || true
+
+    # - name: Start Ollama server in background
+    #   run: |
+    #     ps -ef | grep ollama
+    #     ss -ltnp | grep 11434 || true
+    #     # ollama serve &
 
     - name: Test Ollama
       run: |
