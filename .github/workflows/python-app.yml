@@ -34,7 +34,7 @@ jobs:
       run: |
         ps -ef | grep ollama
         ss -ltnp | grep 11434 || true
-        ollama serve &
+        # ollama serve &
 
     - name: Test Ollama
       run: |
