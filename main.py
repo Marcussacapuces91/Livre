@@ -1,4 +1,5 @@
 from ollama import Client
+import os
 
 if __name__ == "__main__":
   client = Client(
