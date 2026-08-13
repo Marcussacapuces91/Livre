@@ -8,6 +8,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch: # Permet de déclencher manuellement l'action
 
 permissions:
   contents: read
@@ -26,10 +27,11 @@ jobs:
         OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
       run: |-
         curl -fsSL https://ollama.com/install.sh | sh
+        export PATH="$HOME/.local/bin:$PATH"
         ollama --version
         ollama serve &
 
-    - run: ollama run llama3.2 --verbose
+    - run: ollama run gemma4:cloud --verbose
 
     - name: Install uv
       uses: astral-sh/setup-uv@v1
