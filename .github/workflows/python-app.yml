@@ -21,9 +21,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v6
 
-    - run: export OLLAMA_API_KEY= ${{ secrets.OLLAMA_API_KEY }}
-
     - name: Load & install Ollama CLI
+      env:
+        OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
       run: |-
         curl -fsSL https://ollama.com/install.sh | sh
         ollama --version
