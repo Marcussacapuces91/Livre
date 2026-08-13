@@ -25,11 +25,15 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v6
+      
+    - name: Install python
+      uses: actions/setup-python@v5
+      with:
+        python-version-file: "pyproject.toml"
 
     - name: Install uv
       uses: astral-sh/setup-uv@v1
 
-    - run: uv add ollama markdown
+    - run: uv sync
 
-    - name: Run main.py
-      run: uv run main.py
+    - run: uv run main.py
