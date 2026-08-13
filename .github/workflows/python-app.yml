@@ -25,6 +25,7 @@ jobs:
       run: |-
         curl -fsSL https://ollama.com/install.sh | sh
         ollama --version
+        ollama serve &
 
     - name: Install uv
       uses: astral-sh/setup-uv@v1
