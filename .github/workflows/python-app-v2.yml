@@ -11,10 +11,11 @@ on:
   workflow_dispatch: # Permet de déclencher manuellement l'action
 
 permissions:
-  contents: read
+  contents: write
 
 env:
   OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         
 jobs:
   build:
