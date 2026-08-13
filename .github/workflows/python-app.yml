@@ -24,5 +24,7 @@ jobs:
     - name: Install uv
       uses: astral-sh/setup-uv@v1
 
+    - run: uv tool install ollama
+
     - name: Run main.py
       run: uv run main.py
