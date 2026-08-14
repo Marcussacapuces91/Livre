@@ -2,7 +2,7 @@
 from ollama import Client
 
 
-class LLM
+class LLM:
 
   def __init__(self, model):
     self._model = model
