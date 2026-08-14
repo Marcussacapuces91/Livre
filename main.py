@@ -3,11 +3,8 @@ import os
 import markdown
 
 if __name__ == "__main__":
-  client = Client(
-    host='https://ollama.com',
-    headers={'Authorization': 'Bearer ' + os.environ.get('OLLAMA_API_KEY')}
-  )
-
+  llm = LLM('gpt-oss:120b')
+  
   prompt = """Tu es un expert en génie des procédés, ingénierie thermodynamique, capture du carbone (CCS/CCU) et économie circulaire.
 
 Je souhaite développer un module industriel conteneurisé (format conteneur maritime 40 pieds) d'inertage et de valorisation des cendres d'incinérateur (REFIOM/mâchefers) par capture de CO2 directement sur les fumées de cheminée.
@@ -51,7 +48,7 @@ Fournis des calculs clairs, des schémas d'écoulement textuels (block flow diag
   with open("cache.pick", "wb") as cache_file:
     cache_file.write(b"Hello World!")
   
-  resp = client.generate("gpt-oss:120b", prompt=prompt, think=True)
+  resp = llm.generate(prompt)
   print(resp.get('thinking'))
   print(resp.get('response'))
   with open("docs/response.md", "w", encoding="utf-8", errors="xmlcharrefreplace") as output_file:
