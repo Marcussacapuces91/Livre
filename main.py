@@ -1,6 +1,7 @@
 from ollama import Client
 import os
 import markdown
+from llm import LLM
 
 if __name__ == "__main__":
   llm = LLM('gpt-oss:120b')
