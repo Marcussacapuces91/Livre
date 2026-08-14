@@ -46,6 +46,7 @@ Fournis des calculs clairs, des schémas d'écoulement textuels (block flow diag
   resp = client.generate("gpt-oss:120b", prompt=prompt, think=True)
   print(resp.get('thinking'))
   print(resp.get('response'))
-  with open("response.html", "w", encoding="utf-8", errors="xmlcharrefreplace") as output_file:
-    output_file.write(markdown.markdown(resp['response']))
+  with open("docs/response.md", "w", encoding="utf-8", errors="xmlcharrefreplace") as output_file:
+    output_file.write(resp['response'])
+    # output_file.write(markdown.markdown(resp['response']))
     
