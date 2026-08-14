@@ -1,4 +1,4 @@
-from ollama import Client
+
 import os
 import markdown
 from llm import LLM
