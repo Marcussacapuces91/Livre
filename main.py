@@ -47,6 +47,9 @@ De même, pour l'étape 1, l'extraction de l'humidité. Sur la base de 20 cyclon
 
 Fournis des calculs clairs, des schémas d'écoulement textuels (block flow diagrams) et valide la cohérence thermodynamique globale du système.
 """
+
+  with open("cache.pick", "wb") as cache_file:
+    cache_file.write(b"Hello World!")
   
   resp = client.generate("gpt-oss:120b", prompt=prompt, think=True)
   print(resp.get('thinking'))
