@@ -6,7 +6,10 @@ class LLM
 
   def __init__(self, model):
     self._model = model
-    self._client = ollama.Client()
+    self._client = Client(
+      host='https://ollama.com',
+      headers={'Authorization': 'Bearer ' + os.environ.get('OLLAMA_API_KEY')}
+    )
 
   def generate(self, prompt: str):
     resp = self._client.generate(self._model, self._prompt)
