@@ -11,7 +11,9 @@ on:
   workflow_dispatch: # Permet de déclencher manuellement l'action
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -21,26 +23,33 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v6
-      
-    - name: Install python
-      uses: actions/setup-python@v5
-      with:
-        python-version-file: "pyproject.toml"
-
-    - name: Install uv
-      uses: astral-sh/setup-uv@v1
-
-    - run: uv sync
-
-    - run: uv run main.py
-      env:
-        OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
-
-    - uses: actions/upload-pages-artifact@v4
-      with:
-        path: docs
+      - name: Checkout repository
+        uses: actions/checkout@v6
         
-    - uses: actions/deploy-pages@v4
+      - name: Install python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
+  
+      - name: Install uv
+        uses: astral-sh/setup-uv@v1
+  
+      - run: uv sync
+  
+      - run: uv run main.py
+        env:
+          OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
+  
+      - uses: actions/configure-pages@v5
+  
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+          
+      - id: deployment
+        uses: actions/deploy-pages@v4
