@@ -5,7 +5,7 @@ import sys
 from pprint import pprint
 
 import rich.console, rich.markdown, rich.table
-import llm
+from . import llm
 import json
 import yaml
 import jinja2

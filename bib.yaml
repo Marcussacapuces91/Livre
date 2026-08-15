@@ -1,0 +1,49 @@
+structure:
+  title: "La plus Grande Bibliothèque du Monde"
+  guidance: |-
+    L'idée est de constituer un système d'échange de livres sur abonnement selon le parcours suivant :
+    
+      1. Le lecteur "commande" un livre sur l'application ;
+      2. Il le reçoit dans une enveloppe matelassée dans un 'locker' qu'il va cherché proche de chez lui ;
+      3. Il lit le livre...
+      4. Il imprime une nouvelle étiquette, place le livre (lecture du code-barres) dans l'enveloppe (photo de l'étiquette
+         / code à barres) puis va le reposer dans un autre locker ou dans une boutique affiliée pour expédition
+         immédiate ;
+      5. Le livre est expédié au prochain demandeur ou au central en cas de défaut (livre abimé ou mauvais livre reçu).
+    
+    Pour augmenter rapidement le volume des titres référencés, on peut proposer aux premiers abonnés d'inventorier les
+    livres qu'ils possèdent et de leur affecter un bonus quand leur livres sont injectés dans le système.
+
+
+#📌 Recommandations concrètes
+#
+#  1 MVP ultra‑léger – Utilisez des QR‑codes uniquement (pas d’imprimante). Chaque livre possède déjà son ISBN ; le QR contient l’ID du livret, le code client, la date de retour prévue.
+#  2 Choisissez un opérateur de locker déjà existant (ex : InPost, UPS Access Point). Vous ne payez que la location d’un point, pas d’infrastructure.
+#  3 Démarrez sur un segment niche – par ex. “romans contemporains français” ou “livres pour enfants”. Un catalogue ciblé donne un premier effet de réseau plus rapide.
+#  4 Intégrez un petit “cercle de confiance” dès le lancement (ex : membres recommandés par un ami) → réduction du risque de perte.
+#  5 Mettez en place un fonds de remplacement (1 % du chiffre d’affaires) pour couvrir les pertes et garder la confiance des membres.
+#  6 Pensez à la durabilité – réutilisez les enveloppes matelassées, offrez un “pack d’emballage” à chaque membre (enveloppe + bande élastique) qui revient à chaque livraison.
+#  7 Développez un tableau de bord d’inventaire à la fois interne et visible par les utilisateurs (ex : “10 exemplaires disponibles, 2 en transit”). Cela réduit l’anxiété du lecteur et augmente le taux de
+#    conversion.
+#  8 Définissez clairement les règles de “réservation” – limite de 2 livres simultanés par membre, délai de 30 jours, renouvellement possible si aucun autre demandeur n’est en attente.
+#  9 Testez le modèle de bonus d’inventaire avec un programme “Friend‑Referral” : chaque ami qui inscrit 2 livres rapporte + 1 € de crédit à l’invitant.
+# 10 Planifiez une levée de fonds (seed) en présentant le modèle comme “plateforme circulaire pour la culture”. Les fonds serviront à financer le stock initial et la négociation des lockers.
+#
+
+  prolog: |-
+    Ton avis sur ce _business model_. Y vois-tu des faiblesses, que l'on peut renforcer ou qui sont bloquantes ? 
+
+  sections:
+    - title: "1. Analyse du _Business Model_"
+      sections:
+        - title: "1.1. SWOT du business model"
+        - title: "1.2. Business model CANVAS"
+        - title: "1.3. Points de frictions et solution pragmatiques"
+        - title: "1.4. Feuille de route MVP (6-12 mois)"
+        - title: "1.5. Modélisation financière"
+        - title: "1.5. Les Bonus : comment rendre le système attractif"
+        - title: "1.6. Risques juridiques & Mitigation"
+        - title: "1.7. KPI à suivre (tableau de bord)"
+        - title: "1.8. Stratégies de croissance & différenciation"
+
+    - title: "2. Première itération"
