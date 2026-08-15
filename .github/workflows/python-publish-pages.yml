@@ -44,6 +44,7 @@ jobs:
   
       - run: uv run -m livre bib.yaml
         env:
+          OLLAMA_URL: https://ollama.com
           OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
   
       - name: Setup pages

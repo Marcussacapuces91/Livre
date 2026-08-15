@@ -1,3 +1,4 @@
+import os
 from pprint import pprint
 
 import ollama
@@ -36,7 +37,13 @@ class LLM:
         self._cache = LLM._get_cache('cache.pickle')
 
         try:
-            self._client = ollama.Client()
+            headers = None
+            if os.environ.get('OLLAMA_API_KEY'):
+                headers = {'Authorization': 'Bearer ' + os.environ.get('OLLAMA_API_KEY')}
+            self._client = ollama.Client(
+                host=os.environ.get('OLLAMA_URL'),
+                headers=headers
+            )
             # with rich.status.Status(f"Warming {self._model}..."):
             #     self._client.chat(self._model, keep_alive=keep_alive)  # chauffe le model
         except ollama.ResponseError as e:
