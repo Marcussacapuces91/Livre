@@ -22,8 +22,8 @@ concurrency:
   
 jobs:
 
-  # Build job
-  build:
+  # Generate markdown files
+  generate:
     runs-on: ubuntu-latest
 
     steps:
@@ -46,7 +46,24 @@ jobs:
         env:
           OLLAMA_URL: https://ollama.com
           OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
-  
+
+      - name: Upload generated docs
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs
+          path: docs/
+
+  jekyll:
+    runs-on: ubuntu-latest
+    needs: generate
+
+    steps:
+      - name: Download docs artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: docs
+          path: docs/
+
       - name: Setup pages
         uses: actions/configure-pages@v5
 
@@ -59,7 +76,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
-
+  # Deploy web pages
   deploy:
     runs-on: ubuntu-latest
     
@@ -67,7 +84,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-    needs: build
+    needs: jekyll
 
     steps:
       - name: Deploy to Github Pages
