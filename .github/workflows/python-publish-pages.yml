@@ -40,7 +40,7 @@ jobs:
   
       - run: uv sync
   
-      - run: uv run -l livre
+      - run: uv run -m livre
         env:
           OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
   
