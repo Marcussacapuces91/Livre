@@ -2,6 +2,7 @@ import datetime
 import logging
 import os
 import sys
+from pathlib import Path
 from pprint import pprint
 
 import rich.console, rich.markdown, rich.table
@@ -137,6 +138,7 @@ if __name__ == '__main__':
             my_llm = llm.LLM(model=model, think='high')
             resp = analyze(doc.get('variables', {}), doc.get('structure'))
 
+            Path('docs/index.md').write_text(resp, encoding='utf-8', )
 
             with open('doc.html', 'wt', encoding='utf-8') as f:
                 f.write("""<!DOCTYPE html>
