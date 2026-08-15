@@ -30,8 +30,8 @@ structure:
 # 10 Planifiez une levée de fonds (seed) en présentant le modèle comme “plateforme circulaire pour la culture”. Les fonds serviront à financer le stock initial et la négociation des lockers.
 #
 
-  prolog: |-
-    Ton avis sur ce _business model_. Y vois-tu des faiblesses, que l'on peut renforcer ou qui sont bloquantes ? 
+#  prolog: |-
+#    Ton avis sur ce _business model_. Y vois-tu des faiblesses, que l'on peut renforcer ou qui sont bloquantes ?
 
   sections:
     - title: "1. Analyse du _Business Model_"
