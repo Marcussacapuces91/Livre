@@ -39,7 +39,7 @@ class LLM:
         try:
             headers = None
             if os.environ.get('OLLAMA_API_KEY'):
-                headers = {'Authorization': 'Bearer ' + os.environ.get('OLLAMA_API_KEY')}
+                headers = {'Authorization': 'Bearer ' + os.environ['OLLAMA_API_KEY']}
             self._client = ollama.Client(
                 host=os.environ.get('OLLAMA_URL'),
                 headers=headers
@@ -53,6 +53,15 @@ class LLM:
         except Exception as e:
             log.exception("Erreur inconnue")
             raise
+
+    def warming(self) -> None:
+        """
+        Warm the model up, only necessary for local model.
+        Do nothing for cloud models.
+        :return: None
+        """
+        log.info("Warming model=%s", self._model)
+        self._client.generate(self._model)
 
     def chat(self, messages: list) -> list:
         """
