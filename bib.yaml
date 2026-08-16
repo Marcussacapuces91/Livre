@@ -1,3 +1,7 @@
+variables:
+  model: 'gemma4:cloud'
+  docs_path: './docs'
+
 structure:
   title: "La plus Grande Bibliothèque du Monde"
   guidance: |-
@@ -35,6 +39,7 @@ structure:
 
   sections:
     - title: "1. Analyse du _Business Model_"
+      file: "business_model.md"
       sections:
         - title: "1.1. SWOT du business model"
         - title: "1.2. Business model CANVAS"
@@ -47,3 +52,4 @@ structure:
         - title: "1.8. Stratégies de croissance & différenciation"
 
     - title: "2. Première itération"
+      file: "mvp_1.md"
