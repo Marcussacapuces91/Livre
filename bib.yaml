@@ -42,6 +42,7 @@ structure:
       file: "business_model.md"
       sections:
         - title: "1.1. SWOT du business model"
+          guidance: "Met le SWOT dans un carré de 2x2"
         - title: "1.2. Business model CANVAS"
         - title: "1.3. Points de frictions et solution pragmatiques"
         - title: "1.4. Feuille de route MVP (6-12 mois)"
