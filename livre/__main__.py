@@ -25,10 +25,15 @@ def mkd_struct(struct, n: int = 0) -> str:
     :param n: la profondeur de recursion
     :return: une chaine reprenant tous les titres, précédés de "#" selon n.
     """
-    s = f'{"  " * n}{struct['title']}\n'
-    if 'sections' in struct:
-        for sec in struct['sections']:
-            s += mkd_struct(sec, n + 1)
+    try:
+        s = f'{"  " * n}{struct['title']}\n'
+    except KeyError:
+        console.log("`title` awaited in the structure!", struct)
+        log.error("`title` awaited in the structure!\n%s", str(struct))
+        exit(1)
+
+    for sec in struct.get('sections', []):
+        s += mkd_struct(sec, n + 1)
     return s
 
 def _table(title, response):
@@ -60,11 +65,14 @@ def _generate(struct, n, current_path, title, guidance, prolog) -> str:
         resp = my_llm.generate(
             prompt,
             options={
-                'num_ctx': 8192,
-                # 'num_predict': -1
+                'num_ctx': 16384,
+                'num_predict': 5000
             }
         )
-    console.print( _table(title, my_llm.last_response) )
+    try:
+        console.print( _table(title, my_llm.last_response) )
+    except Exception as e:
+        log.error("Exception: Markdown parsing error in %s", str(my_llm.last_response['response']))
     return resp
 
 def analyze(variables: dict, struct: dict, n: int = 0, path=None) -> str | None:

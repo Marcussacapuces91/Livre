@@ -63,39 +63,6 @@ class LLM:
         log.info("Warming model=%s", self._model)
         self._client.generate(self._model)
 
-    def chat(self, messages: list) -> list:
-        """
-        Chat with user
-        :param messages: list of message to be analyzed
-        :return: List of messages append with the last answer
-        """
-        m = hashlib.md5(self._model.encode('utf-8'))
-        m.update(str(messages).encode('utf-8'))
-        digest = m.hexdigest()
-        if digest in self._cache:
-            log.info("Cache hit model=%s digest=%s", self._model, digest)
-            self._last_response = self._cache[digest]
-        else:
-            log.info("Cache miss model=%s digest=%s", self._model, digest)
-            with console.status(rich.markdown.Markdown(f"## Requête\n{messages[-1].get('content')}")):
-                self._last_response = self._client.chat(
-                    model=self._model,
-                    messages=messages,
-                    think=self._think,
-                    options={
-                        'num_ctx': 8192,
-                        'num_predict': 8000
-                    },
-                    keep_alive=self._keep_alive
-                )
-            self._cache[digest] = self._last_response
-            LLM._add_cache(digest, self._last_response, 'cache.pickle')
-
-        return [ *messages, {
-            'role': self._last_response['message'].get('role'),
-            'content': self._last_response['message'].get('content')
-        } ]
-
     def generate(self, prompt: str, format=None, options=None):
         m = hashlib.md5(self._model.encode('utf-8'))
         m.update(prompt.strip('\n ').encode('utf-8'))
