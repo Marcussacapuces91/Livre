@@ -1,6 +1,7 @@
 # 📚 Livre – Générateur Automatique de Livres avec IA
 
-Un outil puissant pour **générer automatiquement du contenu de livre** en utilisant des modèles de langage (LLM) comme Claude, GPT ou Ollama. Définissez votre structure, laissez l'IA faire le travail, et récupérez un document HTML et Markdown complet.
+Un outil puissant pour **générer automatiquement du contenu de livre** en utilisant des modèles de langage (LLM) au moyen du service Ollama. Vous pouvez ainsi
+utiliser une IA locale. Définissez votre structure, laissez l'IA faire le travail, et récupérez un document HTML et Markdown complet.
 
 [![Python 3.14+](https://img.shields.io/badge/Python-3.14%2B-blue?style=flat-square)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
@@ -15,13 +16,13 @@ Un outil puissant pour **générer automatiquement du contenu de livre** en util
 📖 **Résultats** :
 - Document Markdown complet (`docs/index.md`)
 - Page HTML stylisée (`doc.html`)
-- Cache intelligent pour les appels LLM (pas de duplication)
+- Cache intelligent pour les appels LLM (pas de duplication des requettes)
 
 ## 🚀 Installation rapide
 
 ### Prérequis
 - Python 3.14+
-- Un serveur Ollama local ou une clé API (Claude, OpenAI, etc.)
+- Un serveur Ollama local ou une clé API.
 
 ### Installation
 
@@ -140,7 +141,7 @@ variables:
 
 ### 2️⃣ **Cache intelligent**
 
-Les réponses LLM sont cachées (SQLite) pour éviter les appels redondants :
+Les réponses LLM sont cachées pour éviter les appels redondants :
 
 ```python
 # Même prompt + même modèle = résultat instant du cache
@@ -191,7 +192,7 @@ structure:
 
 ### Optimisations incluses
 
-- **Cache SQLite** : Lazy loading des réponses, démarrage instant
+- **Cache** : Chargement des analyses précédentes
 - **Contexte cumulatif** : Chaque section reçoit le contexte de ses parents
 - **Thinking mode** : Activation optionnelle pour plus de réflexion
 
@@ -241,7 +242,7 @@ ollama pull gemma4
 ### Cache rempli / Performances dégradées
 ```python
 # Videz le cache
-python -c "from livre.llm import LLMCache; LLMCache().clear()"
+rm cache.pickle
 ```
 
 ### Erreur de connexion Ollama
@@ -274,6 +275,7 @@ MIT License – Libre d'utilisation, modification et distribution.
 
 ## 🚀 Feuille de route
 
+- [ ] Chargement tardif du cache (lazy loading)
 - [ ] Support du streaming pour réponses longues
 - [ ] Parallélisation des sections indépendantes
 - [ ] Support images/fichiers
