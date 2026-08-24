@@ -85,15 +85,15 @@ def analyze(variables: dict, struct: dict, n: int = 0, path=None) -> str | None:
     :return:            Le résultat agrégé des analyses successives de la structure.
     """
 
+    env = jinja2.Environment()
+    env.globals['now'] = datetime.datetime.now
+    env.globals['today'] = datetime.date.today
+    env.globals['structure'] = mkd_struct(struct)
+
     def rec(variables: dict, struct: dict, n: int, path: list) -> str:
 
         if struct.get('ignore', False):
             return ""
-
-        env = jinja2.Environment()
-        env.globals['now'] = datetime.datetime.now
-        env.globals['today'] = datetime.date.today
-        env.globals['structure'] = mkd_struct(struct)
 
         title = env.from_string(struct['title']).render(**variables)
         guidance = env.from_string(struct.get('guidance', '')).render(**variables)
