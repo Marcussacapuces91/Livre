@@ -10,12 +10,14 @@ structure:
       1. Le lecteur "commande" un livre sur l'application ;
       2. Il le reçoit dans une enveloppe matelassée dans un 'locker' qu'il va cherché proche de chez lui ;
       3. Il lit le livre...
-      4. Il imprime une nouvelle étiquette, place le livre (lecture du code-barres) dans l'enveloppe (photo de l'étiquette
-         / code à barres) puis va le reposer dans un autre locker ou dans une boutique affiliée pour expédition
-         immédiate ;
-      5. Le livre est expédié au prochain demandeur ou au central en cas de défaut (livre abimé ou mauvais livre reçu).
+      4. Il replace le livre dans une enveloppe matelassée (celle initiale ou une autre) ;
+         Y appose un QR Code préimprimé ou réutilise celui de l'enveloppe s'il est toujours lisible ;
+         Associe le livre (ISBN) et le QR-Code de l'enveloppe ;
+         Puis va le reposer dans un locker ou dans une boutique affiliée pour expédition immédiate ;
+         Le QR-Code de l'enveloppe permet l'ouverture d'une case vide du locker ou la prise en charge chez l'affilié.
+      5. Le livre est expédié au prochain demandeur ou au central en cas de besoin de stockage ou de défaut (livre abimé ou mauvais livre reçu).
     
-    Pour augmenter rapidement le volume des titres référencés, on peut proposer aux premiers abonnés d'inventorier les
+    Pour augmenter rapidement le volume des titres référencés, on demandera aux premiers abonnés d'inventorier les
     livres qu'ils possèdent et de leur affecter un bonus quand leur livres sont injectés dans le système.
 
 
@@ -34,23 +36,34 @@ structure:
 # 10 Planifiez une levée de fonds (seed) en présentant le modèle comme “plateforme circulaire pour la culture”. Les fonds serviront à financer le stock initial et la négociation des lockers.
 #
 
-#  prolog: |-
-#    Ton avis sur ce _business model_. Y vois-tu des faiblesses, que l'on peut renforcer ou qui sont bloquantes ?
+prolog: |-
+  Ton avis sur ce _business model_. Y vois-tu des faiblesses, que l'on peut renforcer ou qui sont bloquantes ?
 
   sections:
     - title: "1. Analyse du _Business Model_"
+      ignore: true
       file: "business_model.md"
       sections:
         - title: "1.1. SWOT du business model"
+          ignore: true
           guidance: "Met le SWOT dans un carré de 2x2"
         - title: "1.2. Business model CANVAS"
+          ignore: true
         - title: "1.3. Points de frictions et solution pragmatiques"
+          ignore: true
         - title: "1.4. Feuille de route MVP (6-12 mois)"
+          ignore: true
         - title: "1.5. Modélisation financière"
-        - title: "1.5. Les Bonus : comment rendre le système attractif"
-        - title: "1.6. Risques juridiques & Mitigation"
-        - title: "1.7. KPI à suivre (tableau de bord)"
-        - title: "1.8. Stratégies de croissance & différenciation"
-
+          ignore: true
+        - title: "1.6. Les Bonus : comment rendre le système attractif"
+          ignore: true
+        - title: "1.7. Risques juridiques & Mitigation"
+          ignore: true
+        - title: "1.8. KPI à suivre (tableau de bord)"
+          ignore: true
+        - title: "1.9. Stratégies de croissance & différenciation"
+          ignore: true
+          
     - title: "2. Première itération"
+      ignore: true
       file: "mvp_1.md"
