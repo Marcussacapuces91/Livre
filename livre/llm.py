@@ -23,14 +23,13 @@ console = rich.console.Console()
 
 class LLM:
 
-    def __init__(self, model: str, think=None, keep_alive=None):
+    def __init__(self, model: str, keep_alive=None):
         """
         Initialize the LLM model
         :param model: Model name
         :param think: Think mode
         """
         self._model = model
-        self._think = think
         self._keep_alive = keep_alive
         self._last_response = None
 
@@ -63,7 +62,7 @@ class LLM:
         log.info("Warming model=%s", self._model)
         self._client.generate(self._model)
 
-    def generate(self, prompt: str, format=None, options=None):
+    def generate(self, prompt: str, think=None, format=None, options=None):
         m = hashlib.md5(self._model.encode('utf-8'))
         m.update(prompt.strip('\n ').encode('utf-8'))
         digest = m.hexdigest()
@@ -76,7 +75,7 @@ class LLM:
             self._last_response = self._client.generate(
                 model=self._model,
                 prompt=prompt.strip('\n '),
-                think=self._think,
+                think=think,
                 format=format,
                 options=options,
                 keep_alive=self._keep_alive

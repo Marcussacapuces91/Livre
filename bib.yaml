@@ -1,6 +1,9 @@
 variables:
   model: 'gemma4:cloud'
   docs_path: './docs'
+  think: high
+  options: {}
+
 
 structure:
   title: "La plus Grande Bibliothèque du Monde"
@@ -34,11 +37,13 @@ structure:
 # 10 Planifiez une levée de fonds (seed) en présentant le modèle comme “plateforme circulaire pour la culture”. Les fonds serviront à financer le stock initial et la négociation des lockers.
 #
 
-#  prolog: |-
-#    Ton avis sur ce _business model_. Y vois-tu des faiblesses, que l'on peut renforcer ou qui sont bloquantes ?
+  prolog: |-
+    Ton avis sur ce _business model_. Y vois-tu des faiblesses, que l'on peut renforcer ou qui sont bloquantes ?
+    Comment absorber un cout de transport d'entre 2 et 3 € par transport de livre (soit le double pour un livre lu, sauf optimisation entre 2 lecteurs successifs) ?
 
   sections:
     - title: "1. Analyse du _Business Model_"
+      ignore: true
       file: "business_model.md"
       sections:
         - title: "1.1. SWOT du business model"
@@ -53,4 +58,5 @@ structure:
         - title: "1.8. Stratégies de croissance & différenciation"
 
     - title: "2. Première itération"
+      ignore: true
       file: "mvp_1.md"
