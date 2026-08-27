@@ -4,7 +4,8 @@ variables:
   think: high
   options: {}
   substitutions:
-    - '$\rightarrow$': '-->'
+    - '$\rightarrow$': '⟶'
+    - '---\n': '\n'
 
 
 structure:
