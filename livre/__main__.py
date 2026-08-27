@@ -56,6 +56,7 @@ if __name__ == '__main__':
         console.print(f"\nFile not found '{sys.argv[1]}', no YAML file to process!", style='bold red')
 
     except Exception as e:
+        console.print_exception()
         console.print(
             rich.panel.Panel(f"Erreur inattendue : {e}", title="Exception", style="bold red")
         )

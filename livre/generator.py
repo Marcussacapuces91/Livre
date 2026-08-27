@@ -1,5 +1,6 @@
 import logging
 import datetime
+from pathlib import Path
 from typing import Sequence
 
 import jinja2
@@ -82,11 +83,16 @@ class Generator:
 
             current_path = [guidance] if path is None else [*path, guidance]
 
+            if struct.get('output_file'):
+                output_file = Path(variables.get('docs_path', "."), struct['output_file']).open('wt', encoding='utf-8')
+
             resp = (    # llm response or "" if no need to ask for a answer.
                 Generator._generate(llm, struct, n, current_path, title, guidance, prolog, think=variables.get('think'), options=variables.get('options'))
                 if prolog or not struct.get('sections', False)
                 else ""
             )
+
+            output_file.write(resp)
 
             ## Resp contains
             # model = 'laguna-xs-2.1:latest'
@@ -119,6 +125,8 @@ class Generator:
         env.globals['structure'] = Generator._mkd_struct(self._struct)
 
         llm = LLM(model=self._model)
+
+        output_file = None
 
         rec(self._variables, self._struct)
 
