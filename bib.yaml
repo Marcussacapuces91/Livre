@@ -6,7 +6,7 @@ variables:
 
 
 structure:
-  output_file: "bib.md"
+  output_file: "index.md"
   title: "La plus Grande Bibliothèque du Monde"
   guidance: |-
     L'idée est de constituer un système d'échange de livres sur abonnement selon le parcours suivant :
