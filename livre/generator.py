@@ -92,6 +92,10 @@ class Generator:
                 else ""
             )
 
+            for subst in variables.get('substitutions', []):
+                (key, value), = subst.items()
+                resp = resp.replace(key, value)
+
             output_file.write(resp)
 
             ## Resp contains

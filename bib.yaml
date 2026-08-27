@@ -3,6 +3,8 @@ variables:
   docs_path: './docs'
   think: high
   options: {}
+  substitutions:
+    - '$\rightarrow$': '-->'
 
 
 structure:
