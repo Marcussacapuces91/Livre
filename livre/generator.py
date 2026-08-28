@@ -69,7 +69,7 @@ class Generator:
 
     def run(self):
 
-        def rec(variables: dict, struct: dict, n: int = 0, path=None) -> str:
+        def rec(output_file, variables: dict, struct: dict, n: int = 0, path=None) -> str:
 
             if struct.get('ignore', False):
                 return ""
@@ -96,7 +96,10 @@ class Generator:
                 (key, value), = subst.items()
                 resp = resp.replace(key, value)
 
-            output_file.write(resp)
+            if output_file is None:
+                log.warning("Can't write in any file. User should define 'output_file' in the first structure!")
+            else:
+                output_file.write(resp)
 
             ## Resp contains
             # model = 'laguna-xs-2.1:latest'
@@ -118,7 +121,7 @@ class Generator:
             # total = None
 
             for sec in struct.get('sections', ()):
-                sous_resp = rec(variables, sec, n + 1, current_path)
+                sous_resp = rec(output_file, variables, sec, n + 1, current_path)
                 if sous_resp is not None:
                     resp += '\n\n' + sous_resp
             return resp
@@ -130,9 +133,7 @@ class Generator:
 
         llm = LLM(model=self._model)
 
-        output_file = None
-
-        rec(self._variables, self._struct)
+        rec(output_file=None, variables=self._variables, struct=self._struct)
 
 
     @staticmethod
