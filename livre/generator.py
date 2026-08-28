@@ -29,7 +29,7 @@ class Generator:
         self._options = self._variables.get('options')
 
     @staticmethod
-    def _table(title: str, response: dict) -> rich.table.Table:
+    def _table(prompt: str, title: str, response: dict) -> rich.table.Table:
         grid = rich.table.Table.grid(expand=True)
         grid.add_row("Done", "Reason", "Duration", "Prompt (tk)", "Eval (tk)", style="Bold")
         d = f'{int(response.total_duration / 1000 / 1000 / 1000 / 60)}:{int((int(response.total_duration / 1000 / 1000 / 1000) / 60 - int(response.total_duration / 1000 / 1000 / 1000 / 60)) * 60)}'
@@ -43,7 +43,9 @@ class Generator:
 
         tbl = rich.table.Table(title)
         tbl.add_row(grid, end_section=True)
-        tbl.add_row(response.thinking, end_section=True)
+        tbl.add_row(prompt, end_section=True)
+        if response.thinking:
+            tbl.add_row(response.thinking, end_section=True)
         tbl.add_row(response.response)
         return tbl
 
@@ -57,12 +59,12 @@ class Generator:
         log.debug(prompt)
         with console.status(rich.markdown.Markdown(f'Analyse : **{title}**\n\n{guidance}')):
             resp = llm.generate(
-                prompt,
+                prompt=prompt,
                 think=think,
                 options=options
             )
         try:
-            console.print(Generator._table(title, llm.last_response))
+            console.print(Generator._table(prompt, title, llm.last_response))
         except Exception as e:
             log.error("Exception: Markdown parsing error in %s", str(llm.last_response['response']))
         return resp
