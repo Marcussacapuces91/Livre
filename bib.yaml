@@ -68,6 +68,7 @@ structure:
         {{ struct }}
         
         Les liens sont à faire vers des fichiers nommés `chap[n].md`. Par exemple, `chap1.md` correspond au chapitre `1. Conception et fondations`.
+        Ajoute une courte introduction avant la table des matières pour présenter le sujet / la thématique.
 
     - title: "1. Conception et fondations"
       output_file: "chap1.md"
