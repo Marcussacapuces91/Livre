@@ -11,6 +11,8 @@ variables:
 structure:
   title: "La plus Grande Bibliothèque du Monde"
   guidance: |-
+    # Contexte
+    
     L'idée est de constituer un système d'échange de livres sur abonnement selon le parcours suivant :
     
       1. Le lecteur "commande" un livre sur l'application ;
@@ -23,6 +25,15 @@ structure:
     
     Pour augmenter rapidement le volume des titres référencés, on peut proposer aux premiers abonnés d'inventorier les
     livres qu'ils possèdent et de leur affecter un bonus quand leur livres sont injectés dans le système.
+    
+    # Rédaction
+    
+    - Tu vas rédiger chaque chapitre ou section à la demande, quand ils te seront indiqués.
+    - Respecte le titre et sa numérotation, y compris le niveau d'entête (`#` pour un chapitre, `##` pour une section, etc.)
+    - Ne commente pas ta rédaction ; pas de : "maintenant je vais produire un chapitre qui détaille..."
+    - Ne justifie pas tes choix dans une partie conclusive, sauf si le prompt en fait la demande expresse.
+    - Par contre, tu peux tout à fait expliquer au cours de ta rédaction les éléments de ton raisonnement qui justifie une position ou une décision (raisonnement logique).
+    - Ne rédige que ce qui t'es demandé (chapitre ou section).
 
 
 #📌 Recommandations concrètes
