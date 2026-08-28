@@ -1,8 +1,9 @@
 variables:
-  model: 'gemma4:cloud'
-  docs_path: './docs'
+#  model: 'gemma4:cloud'
+  model: 'gpt-oss:120b-cloud'
   think: high
-  options: {}
+#  options: {}
+  docs_path: './docs'
   substitutions:
     - '$\rightarrow$': '⟶'
     - '---\n': '\n'
