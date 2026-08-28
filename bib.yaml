@@ -52,7 +52,7 @@ structure:
     - title: "Index"
       output_file: "index.md"
       guidance: |-
-        Crée une page d'index qui permet d'accéder aux autres pages de cette structure :
+        Crée une page d'index pour le site GitHub/Jekyll associé qui permet d'accéder aux autres pages de la structure :
         
         {{ struct }}
         
