@@ -99,7 +99,7 @@ class Generator:
             if output_file is None:
                 log.warning("Can't write in any file. User should define 'output_file' in the first structure!")
             else:
-                output_file.write(resp)
+                output_file.write(f'{resp}\n\n')
                 output_file.flush()
 
             ## Resp contains
