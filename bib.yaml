@@ -73,6 +73,7 @@ structure:
 
     - title: "1. Conception et fondations"
       output_file: "chap1.md"
+      prolog: "Rédige une courte introduction à ce chapitre"
       sections:
         - title: "1.1. Définition de la Proposition de Valeur (Cible, segments de lecteurs, analyse concurrentielle)."
         - title: "1.2. Spécifications Techniques (Architecture App, gestion de la base de données ISBN, interface de gestion des stocks)."
