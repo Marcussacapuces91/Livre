@@ -1,7 +1,12 @@
-remote_theme: pages-themes/minimal@v0.2.0
-plugins:
-- jekyll-remote-theme
+title: "La plus grande bibliothèque du Monde"
+description: "Exemple d'execussion du package Livre"
 
-markdown: kramdown
-kramdown:
-  math_engine: mathjax
+theme: minima
+
+# remote_theme: pages-themes/minimal@v0.2.0
+# plugins:
+# - jekyll-remote-theme
+
+# markdown: kramdown
+# kramdown:
+#   math_engine: mathjax
