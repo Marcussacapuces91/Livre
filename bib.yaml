@@ -9,7 +9,6 @@ variables:
 
 
 structure:
-  output_file: "index.md"
   title: "La plus Grande Bibliothèque du Monde"
   guidance: |-
     L'idée est de constituer un système d'échange de livres sur abonnement selon le parcours suivant :
@@ -44,23 +43,16 @@ structure:
   prolog: |-
     Ton avis sur ce _business model_. Y vois-tu des faiblesses, que l'on peut renforcer ou qui sont bloquantes ?
     Comment absorber un cout de transport d'entre 2 et 3 € par transport de livre (soit le double pour un livre lu, sauf optimisation entre 2 lecteurs successifs) ?
+    
+    Enfin propose un chapitrage pour décrire ce projet et sa mise en oeuvre en plusieurs itérations (MVP et iterations suivantes sur 6 mois à un an).
+
+  output_file: "analyse.md"
 
   sections:
-    - title: "1. Analyse du _Business Model_"
-      ignore: true
-      file: "business_model.md"
+    - title: "1. Conception et fondations"
+      output_file: "chap1.md"
       sections:
-        - title: "1.1. SWOT du business model"
-          guidance: "Met le SWOT dans un carré de 2x2"
-        - title: "1.2. Business model CANVAS"
-        - title: "1.3. Points de frictions et solution pragmatiques"
-        - title: "1.4. Feuille de route MVP (6-12 mois)"
-        - title: "1.5. Modélisation financière"
-        - title: "1.5. Les Bonus : comment rendre le système attractif"
-        - title: "1.6. Risques juridiques & Mitigation"
-        - title: "1.7. KPI à suivre (tableau de bord)"
-        - title: "1.8. Stratégies de croissance & différenciation"
-
-    - title: "2. Première itération"
-      ignore: true
-      file: "mvp_1.md"
+        - title: "1.1. Définition de la Proposition de Valeur (Cible, segments de lecteurs, analyse concurrentielle)."
+        - title: "1.2. Spécifications Techniques (Architecture App, gestion de la base de données ISBN, interface de gestion des stocks)."
+        - title: "1.3. Stratégie Logistique (Choix des partenaires de transport, définition des zones de test)."
+        - title: "1.4. Modèle Financier (Calcul du seuil de rentabilité selon le prix de l'abonnement et le coût du transport)."
