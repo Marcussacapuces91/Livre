@@ -37,7 +37,14 @@ if __name__ == '__main__':
         with yaml_path.open("rt", encoding="utf-8") as ymlf:
             doc = yaml.safe_load(ymlf)
 
-        generator = Generator(doc.get('variables', {}), doc['structure'] )
+        try:
+            generator = Generator(doc.get('variables', {}), doc['structure'] )
+        except AttributeError as e:
+            console.print(
+                rich.panel.Panel(f"Le fichier {yaml_path} doit posséder une entrée `structure` :\n{e}", title="Erreur YAML", style="bold red")
+            )
+            sys.exit(3)
+
         generator.run()
 
     except yaml.YAMLError as e:
