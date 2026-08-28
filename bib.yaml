@@ -35,47 +35,125 @@ structure:
     - Ne justifie pas tes choix dans une partie conclusive, sauf si le prompt en fait la demande expresse.
     - Par contre, tu peux tout à fait expliquer au cours de ta rédaction les éléments de ton raisonnement qui justifie une position ou une décision (raisonnement logique).
     - Ne rédige que ce qui t'es demandé (chapitre ou section).
-
-
-#📌 Recommandations concrètes
-#
-#  1 MVP ultra‑léger – Utilisez des QR‑codes uniquement (pas d’imprimante). Chaque livre possède déjà son ISBN ; le QR contient l’ID du livret, le code client, la date de retour prévue.
-#  2 Choisissez un opérateur de locker déjà existant (ex : InPost, UPS Access Point). Vous ne payez que la location d’un point, pas d’infrastructure.
-#  3 Démarrez sur un segment niche – par ex. “romans contemporains français” ou “livres pour enfants”. Un catalogue ciblé donne un premier effet de réseau plus rapide.
-#  4 Intégrez un petit “cercle de confiance” dès le lancement (ex : membres recommandés par un ami) → réduction du risque de perte.
-#  5 Mettez en place un fonds de remplacement (1 % du chiffre d’affaires) pour couvrir les pertes et garder la confiance des membres.
-#  6 Pensez à la durabilité – réutilisez les enveloppes matelassées, offrez un “pack d’emballage” à chaque membre (enveloppe + bande élastique) qui revient à chaque livraison.
-#  7 Développez un tableau de bord d’inventaire à la fois interne et visible par les utilisateurs (ex : “10 exemplaires disponibles, 2 en transit”). Cela réduit l’anxiété du lecteur et augmente le taux de
-#    conversion.
-#  8 Définissez clairement les règles de “réservation” – limite de 2 livres simultanés par membre, délai de 30 jours, renouvellement possible si aucun autre demandeur n’est en attente.
-#  9 Testez le modèle de bonus d’inventaire avec un programme “Friend‑Referral” : chaque ami qui inscrit 2 livres rapporte + 1 € de crédit à l’invitant.
-# 10 Planifiez une levée de fonds (seed) en présentant le modèle comme “plateforme circulaire pour la culture”. Les fonds serviront à financer le stock initial et la négociation des lockers.
-#
-
-  prolog: |-
-    Ton avis sur ce _business model_. Y vois-tu des faiblesses, que l'on peut renforcer ou qui sont bloquantes ?
-    Comment absorber un cout de transport d'entre 2 et 3 € par transport de livre (soit le double pour un livre lu, sauf optimisation entre 2 lecteurs successifs) ?
     
-    Enfin propose un chapitrage pour décrire ce projet et sa mise en oeuvre en plusieurs itérations (MVP et iterations suivantes sur 6 mois à un an).
-
-  output_file: "analyse.md"
+    # Structure
+    
+    La structure du document est déjà définie comme suit :
+    
+    {{ structure }}
+    
+    Référence toi aux autres chapitres/sections quand cela est nécessaire. Tu peux inclure des liens markdown, sachant que chaque chapitre est dans un fichier `chap[n].md`.
 
   sections:
-    - title: "Index"
+    - title: "Analyse"
+      output_file: "analyse.md"
+      guidance: |-
+        Ton avis sur ce _business model_. Y vois-tu des faiblesses, que l'on peut renforcer ou qui sont bloquantes ?
+        Comment absorber un cout de transport d'entre 2 et 3 € par transport de livre (soit le double pour un livre lu, sauf optimisation entre 2 lecteurs successifs) ?
+        
+        Enfin propose un chapitrage pour décrire ce projet et sa mise en oeuvre en plusieurs itérations (MVP et iterations suivantes sur 6 mois à un an).
+
+    - title: "Table des matières"
       output_file: "index.md"
       guidance: |-
-        Crée une page d'index pour le site GitHub/Jekyll associé qui permet d'accéder aux autres pages de la structure :
+        Crée une page d'index pour le site GitHub/Jekyll associé qui permet d'accéder aux autres pages de la structure indiquée ci-dessus.
         
-        {{ struct }}
+        Les liens sont à faire vers des fichiers nommés `chap[n].md`. Par exemple, `chap1.md` correspond au chapitre `1. Introduction et vision`.
+        Exceptionnellement, les annexes sont dans le fichier `annexes.md`.
         
-        Les liens sont à faire vers des fichiers nommés `chap[n].md`. Par exemple, `chap1.md` correspond au chapitre `1. Conception et fondations`.
-        Ajoute une courte introduction avant la table des matières pour présenter le sujet / la thématique.
+        Ajoute une courte introduction avant la table des matières pour présenter le sujet / la thématique car cette page est celle d'aterrissage du site.
 
-    - title: "1. Conception et fondations"
+    - title: "1. Introduction et vision"
       output_file: "chap1.md"
       prolog: "Rédige une courte introduction à ce chapitre"
+      guidance: "Positionner la plateforme comme le premier réseau de prêt physique à l’échelle nationale."
       sections:
-        - title: "1.1. Définition de la Proposition de Valeur (Cible, segments de lecteurs, analyse concurrentielle)."
-        - title: "1.2. Spécifications Techniques (Architecture App, gestion de la base de données ISBN, interface de gestion des stocks)."
-        - title: "1.3. Stratégie Logistique (Choix des partenaires de transport, définition des zones de test)."
-        - title: "1.4. Modèle Financier (Calcul du seuil de rentabilité selon le prix de l'abonnement et le coût du transport)."
+        - title: "1.1. Contexte du marché"
+        - title: "1.2. Mission & valeurs"
+        - title: "1.3 Objectifs à 12 mois"
+
+    - title: "2. Analyse du modèle économique"
+      output_file: "chap2.md"
+      prolog: "Rédige une courte introduction à ce chapitre"
+      guidance: "Décomposer les sources de revenus et les postes de coûts."
+      sections:
+        - title: "2.1 Revenus (abonnements, frais, partenariats)"
+        - title: "2.2 Structure de coûts"
+        - title: "2.3 Marges et seuil de rentabilité"
+
+    - title: "3. Étude de faisabilité opérationnelle"
+      output_file: "chap3.md"
+      guidance: "Identifier les exigences logistiques, légales et technologiques."
+      prolog: "Rédige une courte introduction à ce chapitre"
+      sections:
+        - title: "3.1 Logistique (lockers, transport)"
+        - title: "3.2 Cadre juridique"
+        - title: "3.3 Architecture technique"
+
+    - title: "4. Risques, faiblesses et mitigation"
+      output_file: "chap4.md"
+      guidance: "Lister les points bloquants et proposer des plans d’atténuation."
+      prolog: "Rédige une courte introduction à ce chapitre"
+      sections:
+        - title: "4.1 Risques logistiques"
+        - title: "4.2 Risques légaux"
+        - title: "4.3 Risques financiers"
+
+    - title: "5. Stratégie d’absorption du coût de transport"
+      output_file: "chap5.md"
+      guidance: "Détail des leviers tarifaires, de groupage et de partenariat."
+      prolog: "Rédige une courte introduction à ce chapitre"
+      sections:
+        - title: "5.1 Optimisation du flux"
+        - title: "5.2 Modèle tarifaire"
+        - title: "5.3 Partenariats logistiques"
+        - title: "5.4 Incentives utilisateurs"
+
+    - title: "6. Roadmap produit – MVP et itérations"
+      output_file: "chap6.md"
+      guidance: "Définir les jalons de développement sur 6 mois à 1 an."
+      prolog: "Rédige une courte introduction à ce chapitre"
+      sections:
+        - title: "6.1 MVP – périmètre minimal"
+        - title: "6.2 Itération 1 – extension du réseau de lockers"
+        - title: "6.3 Itération 2 – automatisation du tri"
+        - title: "6.4 Itération 3 – système de notation & assurance"
+        - title: "6.5 Itération 4 – IA de recommandation & optimisation du matching"
+
+    - title: "7. Architecture technique détaillée"
+      output_file: "chap7.md"
+      guidance: "Schémas d’intégration, API, base de données, sécurité."
+      prolog: "Rédige une courte introduction à ce chapitre"
+      sections:
+        - title: "7.1 Front‑end mobile"
+        - title: "7.2 Backend & micro‑services"
+        - title: "7.3 Interfaces partenaires"
+        - title: "7.4 Gestion de la chaîne de suivi (tracking)"
+
+    - title: "8. Plan d’acquisition & rétention"
+      output_file: "chap8.md"
+      guidance: "Stratégies marketing, communauté, programmes de parrainage."
+      prolog: "Rédige une courte introduction à ce chapitre"
+      sections:
+        - title: "8.1 Early‑adopters & inventaire bonus"
+        - title: "8.2 Campagnes digitales"
+        - title: "8.3 Programme de fidélité"
+        - title: "8.4 KPI et tableau de bord"
+
+    - title: "9. Modèle financier prévisionnel"
+      output_file: "chap9.md"
+      guidance: "Projections de revenus, coûts, cash‑flow et besoins de financement."
+      prolog: "Rédige une courte introduction à ce chapitre"
+      sections:
+        - title: "9.1 Scénarios (conservateur / optimiste)"
+        - title: "9.2 Analyse de sensibilité"
+        - title: "9.3 Plan de levée de fonds"
+
+    - title: "Annexes"
+      output_file: "annexes.md"
+      guidance: "Documents de support, études de cas, fiches techniques."
+      prolog: "Rédige une courte introduction à ce chapitre"
+      sections:
+        - title: "A.1 Glossaire"
+        - title: "A.2 Templates d’étiquettes"
+        - title: "A.3 Contrats partenaires"
