@@ -86,6 +86,7 @@ class Generator:
             current_path = [guidance] if path is None else [*path, guidance]
 
             if struct.get('output_file'):
+                if output_file is not None: output_file.close()
                 output_file = Path(variables.get('docs_path', "."), struct['output_file']).open('wt', encoding='utf-8')
 
             resp = (    # llm response or "" if no need to ask for a answer.
@@ -127,6 +128,10 @@ class Generator:
                 sous_resp = rec(output_file, variables, sec, n + 1, current_path)
                 if sous_resp is not None:
                     resp += '\n\n' + sous_resp
+
+            if n == 0 and output_file is not None:
+                output_file.close()
+
             return resp
 
         env = jinja2.Environment()
@@ -137,6 +142,8 @@ class Generator:
         llm = LLM(model=self._model)
 
         rec(output_file=None, variables=self._variables, struct=self._struct)
+
+
 
 
     @staticmethod
